@@ -24,7 +24,7 @@ class MyClient(discord.Client):
 
 #failsafe    
             if msg == 'S!SHUTDOWN':
-                sys.exit()
+                sys.exit() 
 
 #help commands
                 
@@ -244,6 +244,7 @@ class MyClient(discord.Client):
 
 
 
+
 #testing
             if msg == "OCEAN EYES":
                 print("ocean eyes test")
@@ -259,12 +260,12 @@ class MyClient(discord.Client):
                 print('this is working')
                 await message.channel.send("oh hello there. Here's  <@!342247408379363329> to deal with ya")
 
-            ball_response = ["As I see it, yes", "Ask again later.", "Better not tell you now.", "Cannot predict now.", "Concentrate and ask again.", "Dont count on it.", "It is certain.", "It is decidedly so.", "Most likely", "My reply is no.", "My sources say no.", "Outlook not so good.", "outlook good.", "Reply hazy, try again.", "Signs point to yes.", "Very doubtful.", "Without a doubt.", "Yes.", "Yes - definitly.", "No.", ]
-            lucky_phrase = random.randint(0,len(ball_response)-1)
+            #ball_response = ["As I see it, yes", "Ask again later.", "Better not tell you now.", "Cannot predict now.", "Concentrate and ask again.", "Dont count on it.", "It is certain.", "It is decidedly so.", "Most likely", "My reply is no.", "My sources say no.", "Outlook not so good.", "outlook good.", "Reply hazy, try again.", "Signs point to yes.", "Very doubtful.", "Without a doubt.", "Yes.", "Yes - definitly.", "No.", ]
+            #lucky_phrase = random.randint(0,len(ball_response)-1)
 
-            if msg.startswith("S!8BALL"):
-                print("8ball")
-                await message.channel.send(ball_response[lucky_phrase])
+         #   if msg.startswith("S!8BALL"):[-]
+          #      print("8ball")
+           #     await message.channel.send(ball_response[lucky_phrase])
 
             if msg == "S!VERIFY":
                 role = discord.Object(571424621748944907)  #townsfolk role
@@ -277,15 +278,15 @@ class MyClient(discord.Client):
             if msg == "PRESS F TO PAY RESPECTS":
                 print('f in the chats bois')
                 await message.channel.send('F')
-            
-        # 1 todo:
-        # 2 make the army | finished
-        # 3 kill beka |unfinished
-        # 4 kill chocolate cult | unfinished
-        # 5 take over the world | unfinished
-        
-     
-     
+
+            #
+            # if msg == "S!BIRTHDAY":
+              #  print('HAPPY BIRHTDAY')
+               # await message.channel.send('HAPPY BIRTHDAY ')
+                #await message.delete()
+                
+                
+                
+
 client = MyClient()
-client.run('[token]') # << bot token
-    
+client.run('************************************') # << bot token               
