@@ -5,15 +5,21 @@ import time
 import sys
 import random
 
+
+
+
+
+
+
 n = random.randint(0,1)
 
 class MyClient(discord.Client):
-
+s
     
     async def on_ready(self):
         print("logged in")
 
-        await client.change_presence(activity=discord.Game("watching ocean's lair! | s!"))
+        await client.change_presence(activity=discord.Game("Stopping Nick from biting people"))
 
 
         
@@ -24,8 +30,14 @@ class MyClient(discord.Client):
 
 #failsafe    
             if msg == 'S!SHUTDOWN':
-                sys.exit() 
+                sys.exit()
 
+#tormenting people
+
+            if '*bites' in message.content.lower():
+                print('SOME ONE IS BITING PEOPLEEEEEEEEEEEEEEEEEEE')
+                await message.channel.send('Biting people are you? Better be consensual or <@690227486721966130> will take your teeth!')
+                
 #help commands
                 
             if msg == 'S!HELP':
@@ -45,7 +57,6 @@ class MyClient(discord.Client):
                 embedVar.add_field(name="s!headpat @user", value="headpats a user", inline=False)
                 embedVar.add_field(name="s!blep", value="blep.", inline=False)#not pinging commands
                 embedVar.add_field(name="s!8ball", value="ask the great 8ball for the answer!", inline=False) 
-                embedVar.add_field(name="s!yeet", value="YEET (this is your fault griffin)", inline=False) 
                 await message.channel.send(embed=embedVar)
 
             if msg == 'S!HELPGENERAL':
@@ -82,10 +93,6 @@ class MyClient(discord.Client):
                 headpatted = msg.split(" ")[-1]
                 print('headpat sent | line 77')
                 await message.channel.send("https://c.tenor.com/FAQ1w6_7X8cAAAAM/anime-cuddle.gif *head pats* " + headpatted)
-            if msg.startswith("S!YEET"):
-                yeeted = msg.split(" ")[-1]
-                print('yeeeeeeeeeet | 86')
-                await message.channel.send("https://tenor.com/view/yeet-lion-king-simba-rafiki-throw-gif-16194362 *YEEEETS* " + yeeted)
             if msg.startswith("S!BLEP"):
                 print('blep')
                 await message.channel.send('https://c.tenor.com/1sX3pxWwUfsAAAAM/mafumafu-cute.gif')
@@ -101,10 +108,10 @@ class MyClient(discord.Client):
             #general commands:
             if msg == 'S!PING':
                 print('ping pong | line 86') 
-                await message.channel.send(f'pong! :ping_pong: | message took {round(client.latency * 1000)}ms')
-            if msg == "S!SHUTDOWN":
-                await message.channel.send("Bot is shutting down now.")
-                await message.channel.send("<@!690227486721966130>, bot was shutdown by " + str(message.author))
+                await message.channel.send(f'pong! :ping_pong: | message took {round(client.latency * 1000)}ms') 
+            if msg == 'S!SHUTDOWN':
+                print('shutting down')
+                await message.channel.send('_shutting down_')
                 sys.exit()
 
             #server commands:
@@ -218,12 +225,12 @@ class MyClient(discord.Client):
                 embed.add_field(name="4)", value="No graphic gore, porn, or anything 18+, that will not be tolerated here, it will result in an instant ban.", inline=False)
                 embed.add_field(name="5)", value="No pinging mass pings, this will lead to an instant permanent ban.", inline=False)
                 await message.channel.send(embed=embed)
-#rules:
+
             if msg == "S!RULESVC":
                 print('rules 2 | vc')
                 embed=discord.Embed(title="rules in voice channels", color=0x2c90dd)
                 embed.add_field(name="1) ", value="all rules above must be followed at all times", inline=False)
-                embed.add_field(name="2)", value="screaming, earrape and making obnoxious sounds in VC will not be tolerated (to be verified do s!verify in the correct channel) ", inline=False)
+                embed.add_field(name="2)", value="screaming, earrape and making obnoxious sounds in VC will not be tolerated ", inline=False)
                 embed.add_field(name="3)", value="swearing is to be kept to a minimum (only in songs)", inline=True)
                 await message.channel.send(embed=embed)
 
@@ -244,7 +251,6 @@ class MyClient(discord.Client):
 
 
 
-
 #testing
             if msg == "OCEAN EYES":
                 print("ocean eyes test")
@@ -260,33 +266,20 @@ class MyClient(discord.Client):
                 print('this is working')
                 await message.channel.send("oh hello there. Here's  <@!342247408379363329> to deal with ya")
 
-            #ball_response = ["As I see it, yes", "Ask again later.", "Better not tell you now.", "Cannot predict now.", "Concentrate and ask again.", "Dont count on it.", "It is certain.", "It is decidedly so.", "Most likely", "My reply is no.", "My sources say no.", "Outlook not so good.", "outlook good.", "Reply hazy, try again.", "Signs point to yes.", "Very doubtful.", "Without a doubt.", "Yes.", "Yes - definitly.", "No.", ]
-            #lucky_phrase = random.randint(0,len(ball_response)-1)
+            ball_response = ["As I see it, yes", "Ask again later.", "Better not tell you now.", "Cannot predict now.", "Concentrate and ask again.", "Dont count on it.", "It is certain.", "It is decidedly so.", "Most likely", "My reply is no.", "My sources say no.", "Outlook not so good.", "outlook good.", "Reply hazy, try again.", "Signs point to yes.", "Very doubtful.", "Without a doubt.", "Yes.", "Yes - definitly.", "No.", ]
+            lucky_phrase = random.randint(0,len(ball_response)-1)
 
-         #   if msg.startswith("S!8BALL"):[-]
-          #      print("8ball")
-           #     await message.channel.send(ball_response[lucky_phrase])
+            if msg.startswith("S!8BALL"):
+                print("8ball")
+                await message.channel.send(ball_response[lucky_phrase])
 
-            if msg == "S!VERIFY":
-                role = discord.Object(571424621748944907)  #townsfolk role
-                role2 = discord.Object(810212137472622602)  #unverified role
-                print('verified')
-                await message.author.remove_roles(role2)
-                await message.author.add_roles(role)
-                await message.delete()
+
+
+
+
             
-            if msg == "PRESS F TO PAY RESPECTS":
-                print('f in the chats bois')
-                await message.channel.send('F')
-
-            #
-            # if msg == "S!BIRTHDAY":
-              #  print('HAPPY BIRHTDAY')
-               # await message.channel.send('HAPPY BIRTHDAY ')
-                #await message.delete()
-                
-                
-                
 
 client = MyClient()
-client.run('************************************') # << bot token               
+client.run('[redacted]') # << bot token
+
+#command prefix s!
